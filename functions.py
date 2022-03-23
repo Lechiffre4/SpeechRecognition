@@ -1,4 +1,5 @@
 
+from re import L
 from numpy import add
 import speech_recognition as sr
 import pyttsx3
@@ -11,7 +12,6 @@ import io
 def Recognition():
     r = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Speak Anything :")
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio, language="fr-FR")
@@ -26,9 +26,13 @@ def Recognition():
 
 
 def addShortCut(name, link):
-    temp_dict = Websites_url.websites
-    temp_dict.update({name.lower() : link})
-    new_dict = str("websites = " + str(temp_dict))
-    with io.open("Websites_url.py", "w", encoding="utf-8") as f:
-        f.write(new_dict)
+    if (len(name) == 0):
+        return 0
+    else:
+        temp_dict = Websites_url.websites
+        temp_dict.update({name.lower() : link})
+        new_dict = str("websites = " + str(temp_dict))
+        print(new_dict)
+        with io.open("Websites_url.py", "w", encoding="utf-8") as f:
+            f.write(new_dict)
 
