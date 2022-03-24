@@ -18,5 +18,6 @@ execute the command related to your version of Python (from 3.7 to 3.10)
 the program is going to try to download pyaudio for Python 3.9 and 3.10 (one of them is not going to work depending on your version of python)
 
 For now there is only a few website registered.
+You can add your own website link with the GUI.
 
 
